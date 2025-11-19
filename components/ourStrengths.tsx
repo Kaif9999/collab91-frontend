@@ -1,11 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
 
 export default function OurStrengths() {
-  // Initialize with all cards expanded on desktop
-  const [expanded, setExpanded] = useState<Set<number>>(new Set([0, 1, 2]));
+  // Initialize as empty (all collapsed) - will expand on desktop via useEffect
+  const [expanded, setExpanded] = useState<Set<number>>(new Set());
+
+  // Expand all cards on desktop, keep collapsed on mobile
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth >= 768) {
+        // Desktop: expand all cards
+        setExpanded(new Set([0, 1, 2]));
+      } else {
+        // Mobile: keep all collapsed
+        setExpanded(new Set());
+      }
+    };
+
+    // Check on mount
+    checkScreenSize();
+
+    // Check on resize
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   const toggleExpanded = (index: number) => {
     setExpanded((prev) => {
@@ -54,7 +74,7 @@ export default function OurStrengths() {
       <div className="container mx-auto">
         {/* Title Section */}
         <div className="mb-12">
-          <h2 className="text-4xl lg:text-5xl">
+          <h2 className="text-4xl lg:text-5xl text-center lg:text-left">
             <span className="text-[#00406E]">Our</span>{" "}
             <span className="bg-[#010080] text-white px-3 py-2 rounded-lg inline-block">
               strengths.

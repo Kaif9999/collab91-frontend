@@ -28,7 +28,7 @@ export default function OurBusiness() {
               Design with simplicity
             </h3>
             <p className="text-xl text-black leading-relaxed">
-              We help our customers build <strong className="underline">offshore teams</strong> that serve as <br /> <strong className="underline">strategic hubs</strong> for global operations.
+              We help our customers build <strong className="underline">offshore teams that serve as <br /> </strong> <strong className="underline">strategic hubs</strong> for global operations.
             </p>
           </div>
         </div>
@@ -46,14 +46,14 @@ export default function OurBusiness() {
             {/* Box 2 */}
             <div className="bg-white p-6 rounded-lg">
               <p className="text-[#00406E] leading-relaxed">
-                We carry deep sectorial experience in <strong className="underline">procurement and analytics</strong> domains to structure organizations, recruit top-tier talent and manage operations.
+                We carry deep sectorial experience in <strong className="bg-blue-200">procurement and analytics</strong> domains to structure organizations, recruit top-tier talent and manage operations.
               </p>
             </div>
 
             {/* Box 3 */}
             <div className="bg-white p-6 rounded-lg">
               <p className="text-[#00406E] leading-relaxed">
-                Our leadership has mastered the art of building high-functioning teams that deliver exceptional results by <strong className="underline">blending onshore expertise with offshore efficiency.</strong>
+                Our leadership has mastered the art of building high-functioning teams that deliver exceptional results by <strong className="bg-blue-200">blending onshore expertise with offshore efficiency.</strong>
               </p>
             </div>
           </div>
