@@ -50,7 +50,7 @@ export default function OurStrengths() {
   ];
 
   return (
-    <section className="w-full bg-white py-16 px-8">
+    <section id="our-strengths" className="w-full bg-white py-16 px-8">
       <div className="container mx-auto">
         {/* Title Section */}
         <div className="mb-12">

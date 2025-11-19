@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function OurServices() {
   return (
-    <section className="w-full bg-white py-16 px-8">
+    <section id="our-services" className="w-full bg-white py-16 px-8">
       <div className="container mx-auto">
         {/* Title Section */}
         <div className="mb-2">

@@ -4,10 +4,11 @@ import OurBusiness from "@/components/ourBusiness";
 import OurServices from "@/components/ourServices";
 import OurStrengths from "@/components/ourStrengths";
 import ContactUs from "@/components/contactUs";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (    
-    <div>
+    <div className="bg-white">
       <div className="mb-18">
         <NavBar />
       </div>
@@ -16,6 +17,7 @@ export default function Home() {
       <OurServices/>
       <OurStrengths />
       <ContactUs />
+      <Footer />
      
     </div>
   );
