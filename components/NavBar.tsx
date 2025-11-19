@@ -30,17 +30,17 @@ export default function NavBar() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+        <nav className="hidden md:flex items-center gap-8 px-4">
+          <a href="/" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Home
           </a>
           <a href="#our-services" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Services
           </a>
-          <a href="#" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          <a href="/product" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Products
           </a>
-          <a href="#" className="text-[#00406E] font-bold">
+          <a href="/about" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             About
           </a>
           <a href="#contact-us" className="text-[#00406E] font-normal hover:font-semibold transition-all">
@@ -106,7 +106,7 @@ export default function NavBar() {
                 Services
               </a>
               <a
-                href="#"
+                href="/product"
                 onClick={closeMenu}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
@@ -115,7 +115,7 @@ export default function NavBar() {
               <a
                 href="#"
                 onClick={closeMenu}
-                className="text-[#00406E] font-bold py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
+                className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 About
               </a>

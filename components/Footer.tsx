@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#DEEAF6] py-16 px-8 border-b border-gray-400">
+    <footer className="w-full bg-[#DEEAF6] py-10 px-8 border-b border-gray-400">
       <div className="w-full">
         {/* Mobile Layout */}
         <div className="lg:hidden space-y-8">
@@ -11,7 +11,6 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-2">
               <Image src="/colab.svg" alt="COLAB 91 Logo" width={80} height={30} className="w-auto h-auto" />
             </div>
-            <p className="text-gray-500 text-sm mb-4">SUM OF PARTS</p>
             <a href="mailto:Contact@colab91.com" className="text-[#00406E] text-sm hover:underline block mb-4">
               Contact@colab91.com
             </a>

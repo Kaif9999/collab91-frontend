@@ -5,8 +5,8 @@ export default function OurBusiness() {
     <section id="our-business" className="w-full bg-white py-16 px-8">
       <div className="container mx-auto">
         {/* Title Section */}
-        <div className="mb-2">
-          <h2 className="text-4xl lg:text-5xl">
+        <div className="mb-6">
+          <h2 className="text-4xl lg:text-5xl text-center lg:text-left">
             <span className="text-[#00406E]">Our</span>{" "}
             <span className="bg-[#010080] text-white px-3 py-2 rounded-lg inline-block">
               business.
@@ -15,21 +15,31 @@ export default function OurBusiness() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 mb-4">
-          {/* Left Section - 30% (Image Space) */}
-          <div className="lg:col-span-4 flex items-center justify-center">
-            <div className="w-full h-full min-h-[300px] flex items-center justify-center">
-              <Image src="/lightbulbs.svg" alt="Lightbulbs" width={1536} height={1024} className="w-4/5 h-auto" />
-            </div>
-          </div>
-
           {/* Right Section - 70% (Text with Heading) */}
-          <div className="lg:col-span-6 flex flex-col justify-center -mt-24">
+          <div className="order-1 lg:order-2 lg:col-span-6 flex flex-col justify-center lg:-mt-24 text-center lg:text-left px-2">
             <h3 className="text-3xl lg:text-4xl text-black mb-4">
               Design with simplicity
             </h3>
             <p className="text-xl text-black leading-relaxed">
-              We help our customers build <strong className="underline">offshore teams that serve as <br /> </strong> <strong className="underline">strategic hubs</strong> for global operations.
+              We help our customers build{" "}
+              <strong className="underline">
+                offshore teams that serve as <br className="hidden lg:block" />
+              </strong>{" "}
+              <strong className="underline">strategic hubs</strong> for global operations.
             </p>
+          </div>
+
+          {/* Left Section - 30% (Image Space) */}
+          <div className="order-2 lg:order-1 lg:col-span-4 flex items-center justify-center">
+            <div className="w-full h-full min-h-[300px] flex items-center justify-center">
+              <Image
+                src="/lightbulbs.svg"
+                alt="Lightbulbs"
+                width={1536}
+                height={1024}
+                className="w-3/4 max-w-xs sm:max-w-sm lg:w-4/5 h-auto"
+              />
+            </div>
           </div>
         </div>
 
