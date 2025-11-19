@@ -58,9 +58,9 @@ export default function ProductHero() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-6 relative z-10 mt-32 lg:mt-24">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-6 relative z-10 mt-24 lg:mt-12">
           {/* Text Column */}
-          <div className="flex mx-2 flex-col -mt-6 lg:mt-6">
+          <div className="flex mx-12 flex-col mt-6 lg:mt-0">
            
             <h1 className="text-4xl lg:text-5xl text-[#00406E] leading-tight whitespace-nowrap">
               AI-powered Spend Intelligence
@@ -90,7 +90,7 @@ export default function ProductHero() {
           </div>
 
           {/* Image Column */}
-          <div className="relative w-full h-full min-h-[400px] flex items-center justify-center">
+          <div className="relative w-full mx-12 h-full min-h-[400px] flex items-center justify-center">
             <Image
               src="/producthero.svg"
               alt="AI-powered Spend Intelligence"
