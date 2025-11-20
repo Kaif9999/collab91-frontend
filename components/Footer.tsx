@@ -147,7 +147,6 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image src="/colab.svg" alt="COLAB 91 Logo" width={120} height={40} className="w-auto h-auto" />
             </div>
-            <p className="text-gray-500 text-sm mb-4">SUM OF PARTS</p>
             <p className="text-[#00406E] text-sm mb-4">©2025 Collab 91. All Rights Reserved.</p>
             <a href="mailto:Contact@colab91.com" className="text-[#00406E] text-sm hover:underline">
               Contact@colab91.com
