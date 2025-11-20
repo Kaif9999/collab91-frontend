@@ -92,8 +92,8 @@ export default function OurFunctional() {
         {/* Two Column Layout with Divider */}
         <div className="relative">
           {/* Vertical Gradient Divider Line - Mobile on left, Desktop in center */}
-          <div className="block lg:hidden absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-b from-[#FFFFFF] via-[#2E75B7] to-[#FFFFFF] z-0"></div>
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-3 bg-gradient-to-b from-[#FFFFFF] via-[#2E75B7] to-[#FFFFFF] transform -translate-x-1/2 z-0"></div>
+          <div className="block lg:hidden absolute left-0 top-0 bottom-0 w-3 bg-linear-to-b from-[#FFFFFF] via-[#2E75B7] to-[#FFFFFF] z-0"></div>
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-3 bg-linear-to-b from-[#FFFFFF] via-[#2E75B7] to-[#FFFFFF] transform -translate-x-1/2 z-0"></div>
 
           {/* Mobile Layout: All three grids on the right */}
           <div className="block lg:hidden relative z-10 pl-8">
