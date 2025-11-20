@@ -93,7 +93,7 @@ export default function TeamMembers() {
 
               const cardContent = (
                 <div className="bg-white rounded-lg p-4 md:p-6 flex flex-col items-center">
-                  {/* Circular Headshot */}
+                 
                   <div className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-tl-2xl rounded-br-2xl overflow-hidden mb-3 md:mb-4 bg-gray-200">
                     <Image
                       src={member.imagePath}
@@ -140,7 +140,7 @@ export default function TeamMembers() {
                     key={index}
                     className="col-span-2 flex justify-center md:col-span-1 md:flex-none lg:col-span-1"
                   >
-                    <div className="w-full max-w-[calc((100%-1rem)/2)] md:max-w-none md:w-full">
+                    <div className="w-full max-w-[280px] md:max-w-none">
                       {cardContent}
                     </div>
                   </div>

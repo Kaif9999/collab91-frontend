@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 import React from 'react'
 import CareersSection from '@/components/carrersSections'
+import AboutInvest from '@/components/AboutInvest'
 
 const About = () => {
   return (
@@ -12,6 +13,7 @@ const About = () => {
         <AboutSection/>
         <TeamMembers/>    
         <CareersSection/>
+        <AboutInvest />
         <Footer/>
     </div>
   )

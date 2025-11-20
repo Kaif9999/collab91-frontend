@@ -36,7 +36,7 @@ export default function ProductHero() {
           {/* Illustration */}
           <div className="relative w-full min-h-[300px] flex items-center justify-center">
             <Image
-              src="/producthero.svg"
+              src="/productHero.svg"
               alt="AI-powered Spend Intelligence"
               width={794}
               height={554}
@@ -92,7 +92,7 @@ export default function ProductHero() {
           {/* Image Column */}
           <div className="relative w-full mx-12 h-full min-h-[400px] flex items-center justify-center">
             <Image
-              src="/producthero.svg"
+              src="/productHero.svg"
               alt="AI-powered Spend Intelligence"
               width={794}
               height={554}
