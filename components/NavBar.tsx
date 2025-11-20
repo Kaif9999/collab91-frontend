@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +14,18 @@ export default function NavBar() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMenu();
+    // Scroll to contact section if on same page, otherwise navigate
+    const contactSection = document.getElementById("contact-us");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#contact-us";
+    }
   };
 
   return (
@@ -31,19 +44,23 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 px-4">
-          <a href="/" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          <Link href="/" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Home
-          </a>
-          <a href="#our-services" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </Link>
+          <Link href="/services" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Services
-          </a>
-          <a href="/product" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </Link>
+          <Link href="/product" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             Products
-          </a>
-          <a href="/about" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </Link>
+          <Link href="/about" className="text-[#00406E] font-normal hover:font-semibold transition-all">
             About
-          </a>
-          <a href="#contact-us" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </Link>
+          <a 
+            href="#contact-us" 
+            onClick={handleContactClick}
+            className="text-[#00406E] font-normal hover:font-semibold transition-all"
+          >
             Contact us
           </a>
         </nav>
@@ -91,37 +108,37 @@ export default function NavBar() {
 
             {/* Navigation Links */}
             <nav className="flex flex-col px-4 py-6">
-              <a
-                href="#"
+              <Link
+                href="/"
                 onClick={closeMenu}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Home
-              </a>
-              <a
-                href="#our-services"
+              </Link>
+              <Link
+                href="/services"
                 onClick={closeMenu}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Services
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/product"
                 onClick={closeMenu}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Products
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/about"
                 onClick={closeMenu}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 About
-              </a>
+              </Link>
               <a
                 href="#contact-us"
-                onClick={closeMenu}
+                onClick={handleContactClick}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Contact us
