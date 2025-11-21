@@ -1,10 +1,10 @@
 import NavBar from "@/components/NavBar";
 import HeroHome from "@/components/HeroHome";
 import OurBusiness from "@/components/ourBusiness";
-import OurServices from "@/components/ourServices";
 import OurStrengths from "@/components/ourStrengths";
 import ContactUs from "@/components/contactUs";
 import Footer from "@/components/Footer";
+import OurOfferings from "@/components/ourOfferings";
 
 export default function Home() {
   return (    
@@ -14,7 +14,7 @@ export default function Home() {
       </div>
       <HeroHome />
       <OurBusiness />
-      <OurServices/>
+      <OurOfferings />
       <OurStrengths />
       <ContactUs />
       <Footer />

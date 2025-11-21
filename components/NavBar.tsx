@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import PageLoader from "./PageLoader";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,12 +29,31 @@ export default function NavBar() {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = "/#contact-us";
+      setIsLoading(true);
+      setTimeout(() => {
+        router.push("/#contact-us");
+        setTimeout(() => setIsLoading(false), 100);
+      }, 2000);
     }
+  };
+
+  const handleLinkClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href === pathname) {
+      e.preventDefault();
+      return;
+    }
+    
+    setIsLoading(true);
+    e.preventDefault();
+    setTimeout(() => {
+      router.push(href);
+      setTimeout(() => setIsLoading(false), 100);
+    }, 2000);
   };
 
   return (
     <>
+      <PageLoader isLoading={isLoading} />
       <header className="w-full bg-white px-4 py-2 flex items-center justify-between fixed top-0 left-0 right-0 z-50">
         {/* Logo */}
         <div className="shrink-0">
@@ -44,18 +68,34 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 px-4">
-          <Link href="/" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          <a 
+            href="/" 
+            onClick={(e) => handleLinkClick("/", e)}
+            className="text-[#00406E] font-normal hover:font-semibold transition-all"
+          >
             Home
-          </Link>
-          <Link href="/services" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </a>
+          <a 
+            href="/services" 
+            onClick={(e) => handleLinkClick("/services", e)}
+            className="text-[#00406E] font-normal hover:font-semibold transition-all"
+          >
             Services
-          </Link>
-          <Link href="/product" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </a>
+          <a 
+            href="/product" 
+            onClick={(e) => handleLinkClick("/product", e)}
+            className="text-[#00406E] font-normal hover:font-semibold transition-all"
+          >
             Products
-          </Link>
-          <Link href="/about" className="text-[#00406E] font-normal hover:font-semibold transition-all">
+          </a>
+          <a 
+            href="/about" 
+            onClick={(e) => handleLinkClick("/about", e)}
+            className="text-[#00406E] font-normal hover:font-semibold transition-all"
+          >
             About
-          </Link>
+          </a>
           <a 
             href="#contact-us" 
             onClick={handleContactClick}
@@ -108,34 +148,46 @@ export default function NavBar() {
 
             {/* Navigation Links */}
             <nav className="flex flex-col px-4 py-6">
-              <Link
+              <a
                 href="/"
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  handleLinkClick("/", e);
+                }}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Home
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/services"
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  handleLinkClick("/services", e);
+                }}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Services
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/product"
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  handleLinkClick("/product", e);
+                }}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 Products
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/about"
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  handleLinkClick("/about", e);
+                }}
                 className="text-[#00406E] font-normal py-3 px-2 border-b border-gray-100 hover:font-semibold transition-all"
               >
                 About
-              </Link>
+              </a>
               <a
                 href="#contact-us"
                 onClick={handleContactClick}

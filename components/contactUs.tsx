@@ -1,6 +1,8 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeInUp, containerStagger, wordStagger, formFieldStagger, formField } from "./motionVariants";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -25,27 +27,57 @@ export default function ContactUs() {
   };
 
   return (
-    <section id="contact-us" className="w-full bg-white">
+    <motion.section
+      id="contact-us"
+      className="w-full bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInUp}
+    >
       <div className="container">
         {/* Mobile Layout */}
         <div className="lg:hidden">
           {/* Header Section - Contact us heading with light blue background */}
           <div className="bg-[#DEEAF6] py-8 px-4 flex items-center justify-center">
-            <h2 className="text-4xl font-normal text-[#00406E] text-center">
-              Contact us
-            </h2>
+            <motion.h2
+              className="text-4xl font-normal text-[#00406E] text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerStagger}
+            >
+              <motion.span className="inline-block" variants={wordStagger}>
+                Contact
+              </motion.span>
+              <motion.span className="inline-block ml-2" variants={wordStagger}>
+                us
+              </motion.span>
+            </motion.h2>
           </div>
 
           {/* Form Section */}
           <div className="bg-white py-8 px-4">
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-              <h3 className="text-2xl font-normal text-black mb-8">
+              <motion.h3
+                className="text-2xl font-normal text-black mb-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeInUp}
+              >
                 Send us a brief on your requirements
-              </h3>
+              </motion.h3>
 
-              <div className="space-y-6">
+              <motion.div
+                className="space-y-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={formFieldStagger}
+              >
                 {/* Name Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="name-mobile"
                     className="block text-base font-normal text-black mb-2"
@@ -61,10 +93,10 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent"
                   />
-                </div>
+                </motion.div>
 
                 {/* Email Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="email-mobile"
                     className="block text-base font-normal text-black mb-2"
@@ -80,10 +112,10 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent"
                   />
-                </div>
+                </motion.div>
 
                 {/* Message Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="message-mobile"
                     className="block text-base font-normal text-black mb-2"
@@ -99,16 +131,18 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent resize-none"
                   />
-                </div>
+                </motion.div>
 
                 {/* Submit Button - Full Width on Mobile */}
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-[#00406E] text-white font-semibold uppercase rounded-lg hover:bg-[#003055] transition-colors"
-                >
-                  SEND
-                </button>
-              </div>
+                <motion.div variants={formField}>
+                  <button
+                    type="submit"
+                    className="w-full px-8 py-4 bg-[#00406E] text-white font-semibold uppercase rounded-lg hover:bg-[#003055] transition-colors"
+                  >
+                    SEND
+                  </button>
+                </motion.div>
+              </motion.div>
             </form>
           </div>
         </div>
@@ -117,21 +151,44 @@ export default function ContactUs() {
         <div className="hidden lg:grid grid-cols-1 justify-center md:grid-cols-5">
           {/* Left Section - 40% - Contact us heading with light blue background */}
           <div className="md:col-span-2 bg-[#DEEAF6] flex items-start justify-center min-h-[500px] pt-16 px-8">
-            <h2 className="text-4xl lg:text-5xl font-normal text-[#00406E] text-center">
-              Contact us
-            </h2>
+            <motion.h2
+              className="text-4xl lg:text-5xl font-normal text-[#00406E] text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerStagger}
+            >
+              <motion.span className="inline-block" variants={wordStagger}>
+                Contact
+              </motion.span>
+              <motion.span className="inline-block ml-2" variants={wordStagger}>
+                us
+              </motion.span>
+            </motion.h2>
           </div>
 
           {/* Right Section - 60% - Form */}
           <div className="md:col-span-3 bg-white py-16 px-8 md:px-16 lg:px-20 mx-auto max-w-7xl">
             <form onSubmit={handleSubmit} className="max-w-lg">
-              <h3 className="text-2xl lg:text-3xl font-normal text-black mb-10">
+              <motion.h3
+                className="text-2xl lg:text-3xl font-normal text-black mb-10"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeInUp}
+              >
                 Send us a brief on your requirements
-              </h3>
+              </motion.h3>
 
-              <div className="space-y-6">
+              <motion.div
+                className="space-y-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={formFieldStagger}
+              >
                 {/* Name Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="name"
                     className="block text-base font-normal text-black mb-2"
@@ -147,10 +204,10 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent"
                   />
-                </div>
+                </motion.div>
 
                 {/* Email Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="email"
                     className="block text-base font-normal text-black mb-2"
@@ -166,10 +223,10 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent"
                   />
-                </div>
+                </motion.div>
 
                 {/* Message Field */}
-                <div>
+                <motion.div variants={formField}>
                   <label
                     htmlFor="message"
                     className="block text-base font-normal text-black mb-2"
@@ -185,21 +242,23 @@ export default function ContactUs() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#00406E] focus:border-transparent resize-none"
                   />
-                </div>
+                </motion.div>
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="px-8 py-4 bg-[#00406E] text-white font-semibold uppercase rounded-lg hover:bg-[#003055] transition-colors"
-                >
-                  SEND
-                </button>
-              </div>
+                <motion.div variants={formField}>
+                  <button
+                    type="submit"
+                    className="px-8 py-4 bg-[#00406E] text-white font-semibold uppercase rounded-lg hover:bg-[#003055] transition-colors"
+                  >
+                    SEND
+                  </button>
+                </motion.div>
+              </motion.div>
             </form>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="w-full bg-white py-8 px-4 lg:py-16 lg:px-0">
-      <div className="container mx-auto my-8 lg:my-16 max-w-6xl px-4 lg:px-0">
+    <section className="relative w-full bg-white min-h-[600px] overflow-hidden mt-32">
+      <div className="container mx-auto py-8 px-2 bg-white">
         {/* About US Section */}
         <div className="mb-8 lg:mb-16">
           <h2 className="text-4xl lg:text-5xl font-semibold mb-4 lg:mb-6 text-left">
@@ -12,6 +12,7 @@ export default function AboutSection() {
               US
             </span>
           </h2>
+          
           <p className="text-lg lg:text-xl text-[#00406E] leading-relaxed max-w-5xl text-left">
             Colab91 helps mid-market and Private-Equity-backed firms generate
             alpha through specialized procurement and analytics teams that

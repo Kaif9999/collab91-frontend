@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ProductHero() {
   return (
-    <section className="relative w-full bg-white min-h-[600px] overflow-hidden">
-      <div className="container py-8 mt-16 px-2 bg-white">
+    <section className="relative w-full bg-white min-h-[600px] overflow-hidden mt-32">
+      <div className="container mx-auto py-8 px-2 bg-white">
         {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden gap-6">
           <h1 className="text-4xl text-[#00406E] leading-tight px-2 text-left">
@@ -17,20 +20,50 @@ export default function ProductHero() {
 
           {/* Call-to-Action Buttons */}
           <div className="flex flex-col items-start gap-4 px-2">
-            <button
-              className="w-[200px] px-8 py-1 bg-[#00406E] rounded-lg hover:opacity-90 transition-opacity shadow-[0_4px_8px_0_#B4C3D1]"
+            <motion.button
+              className="relative w-[200px] px-8 py-1 bg-[#00406E] rounded-lg overflow-hidden cursor-pointer"
               style={{
                 fontFamily:
                   '"Myriad Pro", "Myriad Pro Regular", Myriad, "Helvetica Neue", Helvetica, Arial, sans-serif',
               }}
+              animate={{
+                scale: [1, 1.02, 1],
+                boxShadow: [
+                  "0 4px 8px 0 #B4C3D1",
+                  "0 8px 16px 0 rgba(0, 64, 110, 0.4)",
+                  "0 4px 8px 0 #B4C3D1",
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 12px 24px 0 rgba(0, 64, 110, 0.5)",
+              }}
+              whileTap={{ scale: 0.98 }}
             >
-              <span className="text-white uppercase text-lg block tracking-widest">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                animate={{
+                  x: ["-100%", "100%"],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  ease: "easeInOut",
+                }}
+              />
+              <span className="relative z-10 text-white uppercase text-lg block tracking-widest">
                 JOIN THE
               </span>
-              <span className="text-white uppercase text-lg block tracking-widest">
+              <span className="relative z-10 text-white uppercase text-lg block tracking-widest">
                 WAITLIST
               </span>
-            </button>
+            </motion.button>
           </div>
 
           {/* Illustration */}
@@ -58,9 +91,9 @@ export default function ProductHero() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-6 relative z-10 mt-24 lg:mt-12">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-6 relative z-10">
           {/* Text Column */}
-          <div className="flex mx-12 flex-col mt-6 lg:mt-0">
+          <div className="flex mx-2 flex-col -mt-6 lg:mt-6">
            
             <h1 className="text-4xl lg:text-5xl text-[#00406E] leading-tight whitespace-nowrap">
               AI-powered Spend Intelligence
@@ -72,25 +105,55 @@ export default function ProductHero() {
             </p>
 
             <div className="flex flex-row flex-wrap gap-4 mt-4 w-full lg:w-[40%]">
-              <button
-                className="flex-1 px-3 py-1 bg-[#00406E] rounded-lg hover:opacity-90 transition-opacity shadow-[0_4px_8px_0_#B4C3D1]"
+              <motion.button
+                className="relative flex-1 px-3 py-1 bg-[#00406E] rounded-lg overflow-hidden cursor-pointer"
                 style={{
                   fontFamily:
                     '"Myriad Pro", "Myriad Pro Regular", Myriad, "Helvetica Neue", Helvetica, Arial, sans-serif',
                 }}
+                animate={{
+                  scale: [1, 1.02, 1],
+                  boxShadow: [
+                    "0 4px 8px 0 #B4C3D1",
+                    "0 8px 16px 0 rgba(0, 64, 110, 0.4)",
+                    "0 4px 8px 0 #B4C3D1",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 12px 24px 0 rgba(0, 64, 110, 0.5)",
+                }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="text-white uppercase text-lg block tracking-widest">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  animate={{
+                    x: ["-100%", "100%"],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    repeatDelay: 1,
+                    ease: "easeInOut",
+                  }}
+                />
+                <span className="relative z-10 text-white uppercase text-lg block tracking-widest">
                   JOIN THE
                 </span>
-                <span className="text-white uppercase text-lg block tracking-widest">
+                <span className="relative z-10 text-white uppercase text-lg block tracking-widest">
                   WAITLIST
                 </span>
-              </button>
+              </motion.button>
             </div>
           </div>
 
           {/* Image Column */}
-          <div className="relative w-full mx-12 h-full min-h-[400px] flex items-center justify-center">
+          <div className="relative w-full h-full min-h-[400px] flex items-center justify-center mt-6 lg:mt-8">
             <Image
               src="/productHero.svg"
               alt="AI-powered Spend Intelligence"

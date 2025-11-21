@@ -1,7 +1,25 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Methodology = () => {
+  const [activeShake, setActiveShake] = useState<number | null>(null);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      setActiveShake(currentIndex);
+      currentIndex = (currentIndex + 1) % 4;
+    }, 3000); // 15 seconds per item
+
+    // Initial shake
+    setActiveShake(0);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const methodologySteps = [
     {
       romanNumeral: "I",
@@ -77,9 +95,18 @@ const Methodology = () => {
               const needsBorders = index === 0 || index === 2;
               
               return (
-                <div
+                <motion.div
                   key={index}
                   className={`flex flex-col ${isRaised ? 'lg:-mt-40 ' : ''}`}
+                  animate={activeShake === index ? {
+                    x: [0, -5, 5, -5, 5, 0],
+                    transition: {
+                      duration: 0.5,
+                      repeat: Infinity,
+                      repeatType: "mirror",
+                      repeatDelay: 3 
+                    }
+                  } : {}}
                 >
                   {/* Icon Image - Above text box */}
                   <div className="w-full h-48 md:h-56 lg:h-48 mb-4 flex items-center justify-center">
@@ -111,7 +138,7 @@ const Methodology = () => {
                       {step.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
